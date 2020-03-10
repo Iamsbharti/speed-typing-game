@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
-/**
- * Challenge:
- *
- * Make it so clicking the Start button starts the timer instead of it starting on refresh
- * (Hint: use a new state variable to indicate if the game should be running or not)
- */
 
 export default function App() {
   const TIMER_FREQ = 5;
@@ -49,9 +43,6 @@ export default function App() {
   function endGame() {
     setGameStart(false);
     countWords();
-    if (!gameStart) {
-      alert("Stop timer has ended!!");
-    }
   }
   return (
     <div className="App">
