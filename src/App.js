@@ -1,13 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./styles.css";
+
+/**
+ * Challenge:
+ *
+ * Make the input box focus (DOM elements have a method called .focus())
+ * immediately when the game starts
+ */
 
 export default function App() {
   const TIMER_FREQ = 5;
-  const [text, setText] = useState("");
+  const [text, setText] = useState({});
   const [wordCount, setWordCount] = useState(0);
   const [timer, countTimer] = useState(TIMER_FREQ);
   const [gameStart, setGameStart] = useState(false);
-
+  const textRef = useRef(null);
   //Effect to decrement timer based on timer
   useEffect(() => {
     if (timer > 0 && gameStart) {
@@ -38,6 +45,8 @@ export default function App() {
     countTimer(TIMER_FREQ);
     setText("");
     setWordCount(0);
+    textRef.current.disabled = false;
+    textRef.current.focus();
   }
 
   function endGame() {
@@ -52,6 +61,7 @@ export default function App() {
         value={text}
         name="text"
         onChange={handleChange}
+        ref={textRef}
       />
       <h4>Time remaining {timer}</h4>
       <button disabled={gameStart} onClick={startGame}>
