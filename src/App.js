@@ -10,7 +10,7 @@ import "./styles.css";
 
 export default function App() {
   const TIMER_FREQ = 5;
-  const [text, setText] = useState({});
+  const [text, setText] = useState("");
   const [wordCount, setWordCount] = useState(0);
   const [timer, countTimer] = useState(TIMER_FREQ);
   const [gameStart, setGameStart] = useState(false);
@@ -28,7 +28,7 @@ export default function App() {
 
   function handleChange(event) {
     const { value } = event.target;
-    setText(prevText => (prevText.text = value));
+    setText(value);
   }
 
   function countWords() {
