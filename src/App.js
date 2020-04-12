@@ -1,12 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./styles.css";
 
-/**
- * Challenge:
- *
- * Make the input box focus (DOM elements have a method called .focus())
- * immediately when the game starts
- */
+
 
 export default function App() {
   const TIMER_FREQ = 5;
